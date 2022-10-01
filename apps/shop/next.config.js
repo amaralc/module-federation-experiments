@@ -28,6 +28,7 @@ const nextConfig = {
         name: 'shop',
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
+          './card': './components/exposedCard.js',
           './shop': './async-pages/shop.js',
           './pdp': './async-pages/p/[...slug].js',
           './pages-map': './pages-map.js',
