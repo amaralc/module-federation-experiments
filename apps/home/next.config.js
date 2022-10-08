@@ -29,7 +29,6 @@ const nextConfig = {
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
           './nav': './components/nav.js',
-          './home': './async-pages/index.js',
           './pages-map': './pages-map.js',
         },
         remotes: remotes(options.isServer),
