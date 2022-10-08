@@ -1,13 +1,38 @@
 import dynamic from 'next/dynamic';
-const page = import('../async-pages/index');
+import {Suspense} from 'react';
+import Head from 'next/head';
 
-const Page = dynamic(() => import('../async-pages/index'));
+const RemoteTitle = dynamic(() => import('checkout/title'), {suspense: true});
+const RemoteCard = dynamic(() => import('shop/card'), {suspense: true});
 
-Page.getInitialProps = async ctx => {
-  const getInitialProps = (await page).default?.getInitialProps;
-  if (getInitialProps) {
-    return getInitialProps(ctx);
+export const getStaticProps = () => {
+  return {
+    props: {
+      title: 'hello'
+    }
   }
-  return {};
+}
+
+
+const Home = ({title}) => {
+  return (
+    <div>
+      <Head>
+        <title>{title}</title>
+        <link rel="icon" href="/favicon.ico"/>
+      </Head>
+
+      <div className="hero">
+        <Suspense>
+          <RemoteTitle/>
+        </Suspense>
+        <Suspense>
+          <RemoteCard/>
+        </Suspense>
+      </div>
+    </div>
+  );
 };
-export default Page;
+
+export default Home;
+

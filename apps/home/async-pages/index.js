@@ -101,7 +101,7 @@ const Home = ({loaded}) => {
   );
 };
 //
-Home.getInitialProps = async ctx => {
+Home.getStaticProps = async ctx => {
   return {};
 };
 
