@@ -1,3 +1,5 @@
-export default {
+const pages = {
   '/': './home',
 };
+
+export default pages;
