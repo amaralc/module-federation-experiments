@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import {Suspense} from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const RemoteTitle = dynamic(() => import('checkout/title'), {suspense: true});
 const RemoteCard = dynamic(() => import('shop/card'), {suspense: true});
@@ -8,7 +9,7 @@ const RemoteCard = dynamic(() => import('shop/card'), {suspense: true});
 export const getStaticProps = () => {
   return {
     props: {
-      title: 'hello'
+      title: 'SSG'
     }
   }
 }
@@ -23,6 +24,12 @@ const Home = ({title}) => {
       </Head>
 
       <div className="hero">
+        <div>
+          <Link href={'/server-side'}>SSR</Link>
+        </div>
+        <div>
+          <Link href={'/client-side'}>CSR</Link>
+        </div>
         <Suspense>
           <RemoteTitle/>
         </Suspense>

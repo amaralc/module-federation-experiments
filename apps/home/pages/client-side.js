@@ -1,12 +1,15 @@
 import dynamic from "next/dynamic";
+import Head from "next/head";
 
 const RemoteTitle = dynamic(() => import('checkout/title'));
 const RemoteCard = dynamic(() => import('shop/card'));
 
-const New = ({title}) => {
+const New = () => {
   return (
     <div>
-      Client
+      <Head>
+        <title>CSR</title>
+      </Head>
       <RemoteTitle/>
       <RemoteCard/>
     </div>

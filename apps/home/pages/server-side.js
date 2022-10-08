@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Head from "next/head";
 
 const RemoteTitle = dynamic(() => import('checkout/title'));
 const RemoteCard = dynamic(() => import('shop/card'));
@@ -6,7 +7,7 @@ const RemoteCard = dynamic(() => import('shop/card'));
 export const getServerSideProps = () => {
   return {
     props: {
-      title: 'hello'
+      title: 'SSR'
     }
   }
 };
@@ -14,7 +15,9 @@ export const getServerSideProps = () => {
 const New = ({title}) => {
   return (
     <div>
-      {title}
+      <Head>
+        <title>{title}</title>
+      </Head>
         <RemoteTitle/>
         <RemoteCard/>
     </div>
