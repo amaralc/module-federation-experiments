@@ -7,7 +7,6 @@ const remotes = isServer => {
   return {
     home: `home@http://localhost:4200/_next/static/${location}/remoteEntry.js`,
     shop: `shop@http://localhost:4202/_next/static/${location}/remoteEntry.js`,
-    checkout: `checkout@http://localhost:4203/_next/static/${location}/remoteEntry.js`,
   };
 };
 
