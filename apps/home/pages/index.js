@@ -3,7 +3,6 @@ import {Suspense} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-const RemoteTitle = dynamic(() => import('checkout/title'), {suspense: true});
 const RemoteCard = dynamic(() => import('shop/card'), {suspense: true});
 
 export const getStaticProps = () => {
@@ -30,9 +29,6 @@ const Home = ({title}) => {
         <div>
           <Link href={'/client-side'}>CSR</Link>
         </div>
-        <Suspense>
-          <RemoteTitle/>
-        </Suspense>
         <Suspense>
           <RemoteCard/>
         </Suspense>

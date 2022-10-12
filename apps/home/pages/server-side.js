@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-const RemoteTitle = dynamic(() => import('checkout/title'));
 const RemoteCard = dynamic(() => import('shop/card'));
 
 export const getServerSideProps = () => {
@@ -18,7 +17,6 @@ const New = ({title}) => {
       <Head>
         <title>{title}</title>
       </Head>
-        <RemoteTitle/>
         <RemoteCard/>
     </div>
   )

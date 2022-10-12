@@ -2,7 +2,6 @@ import React, {Suspense} from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
-const RemoteTitle = dynamic(() => import('checkout/title'), {suspense: true});
 const RemoteCard = dynamic(() => import('shop/card'), {suspense: true});
 
 const Home = ({loaded}) => {
@@ -14,9 +13,6 @@ const Home = ({loaded}) => {
       </Head>
 
       <div className="hero">
-        <Suspense>
-          <RemoteTitle/>
-        </Suspense>
         <Suspense>
           <RemoteCard/>
         </Suspense>
